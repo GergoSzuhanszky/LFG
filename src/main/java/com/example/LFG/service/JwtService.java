@@ -18,8 +18,7 @@ import java.util.function.Function;
 @Service
 public class JwtService {
 
-    @Value("${encryption.key}")
-    private static String KEY;
+    private final static String KEY = System.getenv("LFG_JWT_KEY");
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
