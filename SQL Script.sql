@@ -3,10 +3,11 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
 	id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-	email VARCHAR(255),
 	firstname VARCHAR(255),
 	lastname VARCHAR(255),
-	password VARCHAR(255)
+	email VARCHAR(255),
+	password VARCHAR(255),
+	role VARCHAR(255)
 );
 
 CREATE TABLE games (
@@ -18,10 +19,10 @@ CREATE TABLE games (
 	gamemaster INT REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-INSERT INTO users(email, firstname, lastname, password)
-VALUES ('Email1', 'Firstname1', 'Lastname1', 'Password1');
-INSERT INTO users(email, firstname, lastname, password)
-VALUES ('Email2', 'Firstname2', 'Lastname2', 'Password2');
+INSERT INTO users(firstname, lastname, email, password, role)
+VALUES ('TestFirstname1', 'TestLastname1', 'TestEmail1', 'TestPassword1', 'TestRole1');
+INSERT INTO users(firstname, lastname, email, password, role)
+VALUES ('TestFirstname2', 'TestLastname2', 'TestEmail2', 'TestPassword2', 'TestRole2');
 
 INSERT INTO games(title, description, maxplayers, currentplayers, gamemaster)
 VALUES ('Title1', 'Description1', 4, 0, 1);
